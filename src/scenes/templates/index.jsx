@@ -355,7 +355,7 @@ const [counter, setCounter] = useState([]);
 const updateCounter =()=>{
 
 
-  axios.put('http://localhost:3001/templateCounter' ).then(res => 
+  axios.put('https://server-u74y.vercel.app/templateCounter' ).then(res => 
   {
   
   }
@@ -375,7 +375,7 @@ const fetchTabletsList = async () => {
   try {
   // return axios.get('http://localhost:3000/findTabletsList').then((res) => setTabletData(JSON.parse(JSON.stringify(res.data))));
 
-  const data = await fetch('http://localhost:3001/findTabletsList');
+  const data = await fetch('https://server-u74y.vercel.app/findTabletsList');
   const items = await data.json();
   // console.log('fetching'+items[0].tabletName);
 
@@ -441,7 +441,7 @@ const cnt = data.length;
 
 console.log('params : '+ JSON.stringify((param1)) );
 
-axios.post('http://localhost:3001/createTemplate',(param1) ).then(res => 
+axios.post('https://server-u74y.vercel.app/createTemplate',(param1) ).then(res => 
 {
 
 }
@@ -462,7 +462,7 @@ setOpenmodal(false);
 const [data, setData] = useState([]);
 
 const fetchInfo = () => {
-  return axios.get('http://localhost:3001/viewTemplates').then((res) => setData(res.data));
+  return axios.get('https://server-u74y.vercel.app/viewTemplates').then((res) => setData(res.data));
 };
 
 useEffect(() => {
@@ -723,7 +723,7 @@ const ViewTemplates = ()=> {
   const [data, setData] = useState([]);
 
   const fetchInfo = () => {
-    return axios.get('http://localhost:3001/viewTemplates').then((res) => setData(res.data));
+    return axios.get('https://server-u74y.vercel.app/viewTemplates').then((res) => setData(res.data));
   };
   
   useEffect(() => {
