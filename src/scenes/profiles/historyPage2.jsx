@@ -563,7 +563,7 @@ console.log('params : ' +JSON.stringify(params1));
 //   console.log(' drug history is:'+ JSON.stringify(drugrows));
 //   console.log(' surgical history is:' + surgicalHistory);
 
-axios.post('http://localhost:3001/addhistory1',(params1) ).then(res => 
+axios.post('https://server-u74y.vercel.app/addhistory1',(params1) ).then(res => 
 {
   // if (res.status === 200) {
   //  setData(res.data );
@@ -577,7 +577,7 @@ axios.post('http://localhost:3001/addhistory1',(params1) ).then(res =>
 });
 
 
-axios.put('http://localhost:3001/updateHistory',(params1) ).then(res => 
+axios.put('https://server-u74y.vercel.app/updateHistory',(params1) ).then(res => 
 {
   // if (res.status === 200) {
   //  setData(res.data );
