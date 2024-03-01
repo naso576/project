@@ -54,7 +54,7 @@ const currentdate =year.toString()+month.toString()+day.toString()+num.toString(
 
   const handleFormSubmit =  (values) => {
 
-    axios.post('http://localhost:3001/register',values).then(res => 
+    axios.post('https://server-u74y.vercel.app/register',values).then(res => 
     {
      // console.log('success'+res.data);
       setData(res.data );
