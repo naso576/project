@@ -31,7 +31,7 @@ const fetchTabletsList = async () => {
   try {
   // return axios.get('http://localhost:3000/findTabletsList').then((res) => setTabletData(JSON.parse(JSON.stringify(res.data))));
 
-  const data = await fetch('http://localhost:3001/findTabletsList');
+  const data = await fetch('https://server-u74y.vercel.app/findTabletsList');
   const items = await data.json();
   console.log('fetching'+JSON.parse(JSON.stringify(items)));
 
