@@ -16,6 +16,10 @@ router.put("/updateHistory1",history1.updateHistory1);
 router.put("/updateHistory2",history1.updateHistory2);
 
 
+router.put("/updateNextVisitDate",history1.updateNextVisitDate);
+
+
+
 router.get("/:id", history1.findPatientHistory);
 
 module.exports = router;    

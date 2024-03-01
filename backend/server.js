@@ -4,9 +4,9 @@ const bodyParser = require('body-parser')
 
 const db = require("./models");
 const { findAll , create,findPatient} = require("./controllers/patients.controller");
-const  {createHistory1,findHistory1, updateHistory,updateHistory1,updateHistory2, findPatientHistory  } = require("./controllers/history1.controller");
+const  {createHistory1,findHistory1, updateHistory,updateHistory1,updateHistory2, findPatientHistory ,updateNextVisitDate } = require("./controllers/history1.controller");
 const {createTemplate, viewTemplates,cntTemplates,templateCounter,gettemplateCounter} = require("./controllers/templates.controller");
-const { findTabletsList} = require("./controllers/tablets.controller");
+const { findTabletsList,addTablet} = require("./controllers/tablets.controller");
 
 const patientroute = require('./routes/patients.routes');
 const history1route =require('./routes/history1.routes');
@@ -16,8 +16,7 @@ const app = express();
 // const findAll = require('./routes/patients.routes');
 
 var corsOptions = {
-  // origin: "http://localhost:3000",
-  origin : "https://project-seven-theta-50.vercel.app/",
+  origin: "http://localhost:3000",
   credentials:true,            //access-control-allow-credentials:true
     optionSuccessStatus:200,
     allowedHeaders :'content-type'
@@ -91,6 +90,13 @@ app.put("/updateHistory2",cors(corsOptions), updateHistory2 , function(req,res){
 }
 );
 
+app.put("/updateNextVisitDate",cors(corsOptions), updateNextVisitDate , function(req,res){
+  return res.send({key:'success'})
+
+}
+);
+
+
 
 
 app.post("/createTemplate", cors(corsOptions),createTemplate, function(req,res){
@@ -98,6 +104,12 @@ app.post("/createTemplate", cors(corsOptions),createTemplate, function(req,res){
    return res.send({key:'success'})
 
  });
+ app.post("/addTablet", cors(corsOptions),addTablet, function(req,res){
+  // console.log("Using Body-parser: ", req.body.disease);
+   return res.send({key:'success'})
+
+ });
+ 
 
  
 app.get("/findTabletsList",findTabletsList);
