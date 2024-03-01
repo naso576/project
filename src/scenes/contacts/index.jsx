@@ -46,7 +46,7 @@ const handleIconClick = ( ) => {
   
 
   const fetchInfo = () => {
-    return axios.get('http://localhost:3000/find').then((res) => setData(res.data));
+    return axios.get('http://localhost:3001/find').then((res) => setData(res.data));
   };
 
   useEffect(() => {

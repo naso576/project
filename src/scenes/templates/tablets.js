@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { useState,useEffect } from 'react';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import AddIcon from '@mui/icons-material/Add';
@@ -21,40 +22,92 @@ import {
 } from '@mui/x-data-grid-generator';
 
 
+const TabletsList =()=>{
+
+  
+const [tabletData, setTabletData] = useState([]);
+
+const fetchTabletsList = async () => {
+  try {
+  // return axios.get('http://localhost:3000/findTabletsList').then((res) => setTabletData(JSON.parse(JSON.stringify(res.data))));
+
+  const data = await fetch('http://localhost:3001/findTabletsList');
+  const items = await data.json();
+  console.log('fetching'+JSON.parse(JSON.stringify(items)));
 
 
-const initialRows = [
-  {
-    id: randomId(),
-   
-      vaccinationDate: "",
-    dose: "",
+  const item =[];
+  function replacer(key, value) {
+    // Filtering out properties
+    if (value === null) {
+      console.log('empy')
+      return '';
+    }
+    return value;
   }
-];
+  
 
-function EditToolbar(props) {
-  const { setRows, setRowModesModel } = props;
+  // setTabletData (
 
-  const handleClick = () => {
-    const id = randomId();
-    setRows((oldRows) => [...oldRows, {  id , name: '', age: '', isNew: true }]);
-    setRowModesModel((oldModel) => ({
-      ...oldModel,
-      [id]: { mode: GridRowModes.Edit, fieldToFocus: 'name' },
-    }));
-  };
+    items.map((i,e)=>{
+      const val =
 
-  return (
-    <GridToolbarContainer>
-      <Button color="primary" startIcon={<AddIcon />} onClick={handleClick}>
-        Add record
-      </Button>
-    </GridToolbarContainer>
-  );
+      JSON.stringify(
+        items[e].Composition,
+        function(k, v) { return v === undefined ? null : v; }
+      );
+
+        console.log('fetch'+ JSON.parse(val));
+
+        item.push({
+          tabletName:JSON.parse(JSON.stringify(items[e].tabletName)),
+           id : JSON.stringify(items[e].id), Composition : JSON.parse(val)
+          })
+
+        // return {...tabletData}
+
+      // return {...item, tabletName :items[e].tabletName }
+
+    })
+    setTabletData(item);
+
+}catch (error) {
+  console.error(error);
 }
+};
 
-export default function FullFeaturedCrudGrid() {
-  const [rows, setRows] = React.useState(initialRows);
+useEffect(() => {
+  fetchTabletsList();
+}, []);
+
+
+
+    
+function EditToolbar(props) {
+    const { setRows, setRowModesModel } = props;
+  
+    const handleClick = () => {
+
+    
+      const id = randomId();
+      console.log('clicked'+id)
+      setRows((oldRows) => [...oldRows, {  tabletName: '', Composition: '', isNew: true }]);
+      setRowModesModel((oldModel) => ({
+        ...oldModel,
+        [id]: { mode: GridRowModes.Edit, fieldToFocus: 'tabletName' },
+      }));
+    };
+  
+    return (
+      <GridToolbarContainer>
+        <Button color="primary" startIcon={<AddIcon />} onClick={handleClick}>
+          Add record
+        </Button>
+      </GridToolbarContainer>
+    );
+  }
+
+  const [rows, setRows] = React.useState(tabletData);
   const [rowModesModel, setRowModesModel] = React.useState({});
 
   const handleRowEditStop = (params, event) => {
@@ -76,6 +129,7 @@ export default function FullFeaturedCrudGrid() {
   };
 
   const handleCancelClick = (id) => () => {
+
     setRowModesModel({
       ...rowModesModel,
       [id]: { mode: GridRowModes.View, ignoreModifications: true },
@@ -98,22 +152,20 @@ export default function FullFeaturedCrudGrid() {
   };
 
   const columns = [
+    { field: 'tabletName', headerName: 'Tablet Name',  type: 'text', width: 400, editable: true 
+   
+
+  },
     {
-      field: 'dose',
-      headerName: 'Hepatitis B',
-      width: 220,
-      editable: true,
-      type: 'singleSelect',
-      valueOptions: ['"0" Dose', '"1" Dose', '"2" Dose', '"3" Doase'],
-    },
-  
-    {
-      field: 'vaccinationDate',
-      headerName: 'Date of vaccination',
-      type: 'date',
-      width: 180,
+      field: 'Composition',
+      headerName: 'Composition',
+      type: 'text',
+      width: 400,
+      align: 'left',
+      headerAlign: 'left',
       editable: true,
     },
+   
     {
       field: 'actions',
       type: 'actions',
@@ -161,40 +213,40 @@ export default function FullFeaturedCrudGrid() {
       },
     },
   ];
-
-  return (
+return (
     <Box
-      sx={{
-        height: 400,
-        width: '50%',
-        '& .actions': {
-          color: 'text.secondary',
-        },
-        '& .textPrimary': {
-          color: 'text.primary',
-        },
+    sx={{
+      height: 500,
+      width: '100%',
+      '& .actions': {
+        color: 'text.secondary',
+      },
+      '& .textPrimary': {
+        color: 'text.primary',
+      },
+    }}
+  >
+    <DataGrid
+      rows={tabletData}
+      columns={columns}
+      editMode="row"
+      // getRowId={(row) =>  randomId()}
+      rowModesModel={rowModesModel}
+      onRowModesModelChange={handleRowModesModelChange}
+      onRowEditStop={handleRowEditStop}
+      processRowUpdate={processRowUpdate}
+      slots={{
+        toolbar: EditToolbar,
       }}
-    >
-      <DataGrid
-        rows={rows}
-        columns={columns}
-        editMode="row"
-        rowModesModel={rowModesModel}
-        onRowModesModelChange={handleRowModesModelChange}
-        onRowEditStop={handleRowEditStop}
-        processRowUpdate={processRowUpdate}
-        slots={{
-          toolbar: EditToolbar,
-        }}
-        slotProps={{
-          toolbar: { setRows, setRowModesModel },
-        }}
-        initialState={{
-          ...setRows.initialState,
-          pagination: { paginationModel: { pageSize: 5 } },
-        }}
-        pageSizeOptions={[5, 10, 25]}
-      />
-    </Box>
-  );
+      slotProps={{
+        toolbar: { setRows, setRowModesModel },
+      }}
+    />
+  </Box>
+
+
+)
+
 }
+
+export default TabletsList;

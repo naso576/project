@@ -723,7 +723,7 @@ const ViewTemplates = ()=> {
   const [data, setData] = useState([]);
 
   const fetchInfo = () => {
-    return axios.get('http://localhost:3000/viewTemplates').then((res) => setData(res.data));
+    return axios.get('http://localhost:3001/viewTemplates').then((res) => setData(res.data));
   };
   
   useEffect(() => {

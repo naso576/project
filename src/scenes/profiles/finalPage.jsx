@@ -35,6 +35,7 @@ import { joinPaths } from '@remix-run/router';
 import {TableRow,TableCell,Table,TableHead,TableBody} from '@mui/material'
 
 import { useReactToPrint } from 'react-to-print';
+import MedicationIcon from '@mui/icons-material/Medication';
 
 
 const FinalPage =() => {
@@ -57,6 +58,26 @@ const FinalPage =() => {
     });
 
     const handlePrintwith = () =>{
+
+      
+  const param1 ={
+    profileNo :profileNo,
+    nextVisitDate : nextVisitDate
+  }
+console.log('param : '+ JSON.stringify(param1));
+
+
+
+axios.put('http://localhost:3001/updateNextVisitDate',(param1) ).then(res => 
+{
+
+}
+).catch(err => {
+
+console.log('error: '+err)
+
+});
+
 
       setNextVisitFlag(true);
       setHideAddbutton(true);
@@ -682,7 +703,7 @@ const handleAddMore =()=>{
             
                    
             >
-                                        <AddIcon/>
+                                        <MedicationIcon/>
 
                                        </IconButton>
               }

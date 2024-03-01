@@ -18,6 +18,9 @@ import HistoryPage3 from "./scenes/profiles/historyPage3";
 import HistoryPage4 from "./scenes/profiles/historyPage4";
 import FinalPage from "./scenes/profiles/finalPage";
 import ManageTemplates from "./scenes/templates";
+import TabletsList from "./scenes/templates/tablets";
+import Reminders from "./scenes/reminders";
+
 
 function App() {
   const [theme, colorMode] = useMode();
@@ -40,6 +43,8 @@ function App() {
               <Route path="/profiles" element={<PatientProfile/>}/>
               <Route path="/manageprofiles" element={<ManageProfile/>}/>
               <Route path="templates" element={<ManageTemplates/>}/>
+              <Route path="/templates/tablets" element={<TabletsList/>}/>
+              <Route path="reminders" element={<Reminders/>}/>
               <Route path="/profiles/addComorbidities" element={<AddDetails/>}/>
               <Route path="/profiles/historyPage" element={<HistoryPage1/>}/>
               <Route path="/profiles/historyPage2" element={<HistoryPage2/>}/>

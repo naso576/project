@@ -20,7 +20,7 @@ componentDidMount =() =>{
  findPatient = () => {
 
 
-    axios.get('http://localhost:3000/find').then(
+    axios.get('http://localhost:3001/find').then(
         (res) => {
             console.log('success');
             const data = res.data;

@@ -14,6 +14,7 @@ import MenuOutlinedIcon from "@mui/icons-material/MenuOutlined";
 import MapOutlinedIcon from "@mui/icons-material/MapOutlined";
 import MedicationIcon from '@mui/icons-material/Medication';
 
+
 const Item = ({ title, to, icon, selected, setSelected }) => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
@@ -153,8 +154,16 @@ const Sidebar1 = () => {
               
            />
             <Item
+              title="Manage Tablets"
+              to="/templates/tablets"
+              icon={<MedicationIcon />}
+              selected={selected}
+              setSelected={setSelected}
+              
+           />
+            <Item
               title="Reminders"
-              to="/invoices"
+              to="/reminders"
               icon={<ReceiptOutlinedIcon />}
               selected={selected}
               setSelected={setSelected}
