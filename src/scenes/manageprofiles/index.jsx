@@ -20,7 +20,7 @@ componentDidMount =() =>{
  findPatient = () => {
 
 
-    axios.get('http://localhost:3001/find').then(
+    axios.get('https://server-u74y.vercel.app/find').then(
         (res) => {
             console.log('success');
             const data = res.data;
