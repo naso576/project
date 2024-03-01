@@ -153,7 +153,7 @@ console.log(e.target.name+'  '+e.target.checked);
 
 
             
-          axios.put('http://localhost:3001/updateHistory2',(param1) ).then(res => 
+          axios.put('https://server-u74y.vercel.app/updateHistory2',(param1) ).then(res => 
           {
            
           }
