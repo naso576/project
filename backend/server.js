@@ -16,7 +16,8 @@ const app = express();
 // const findAll = require('./routes/patients.routes');
 
 var corsOptions = {
-  origin: "http://localhost:3000",
+  // origin: "http://localhost:3000",
+  origin : "https://project-seven-theta-50.vercel.app/",
   credentials:true,            //access-control-allow-credentials:true
     optionSuccessStatus:200,
     allowedHeaders :'content-type'

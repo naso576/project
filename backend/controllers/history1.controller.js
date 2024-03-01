@@ -190,3 +190,31 @@ res.send('success');
             .send({ message: "Error retrieving Tutorial with id=" + id });
         });
   };
+
+
+
+  
+  
+  exports.updateNextVisitDate =(req,res,next)=>{
+
+    const arr = (JSON.stringify(req.body)); 
+    const arr1 = JSON.parse(arr);
+   
+  //  console.log('update function' + req.body.investigationdata)
+
+
+    History1.updateOne({profileNo : arr1.profileNo }, 
+                        { 
+                          nextVisitDate : arr1.nextVisitDate
+                                }
+                        
+                      ).then(data=>{
+                        res.send(data)
+                      }).catch(err=>{
+                        res.status(500).send({
+                          message:
+                            err.message || "Some error occurred while updating details."
+                        });
+                      });
+  };
+
