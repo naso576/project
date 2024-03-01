@@ -68,7 +68,7 @@ console.log('param : '+ JSON.stringify(param1));
 
 
 
-axios.put('http://localhost:3001/updateNextVisitDate',(param1) ).then(res => 
+axios.put('https://server-u74y.vercel.app/updateNextVisitDate',(param1) ).then(res => 
 {
 
 }
@@ -380,7 +380,7 @@ const [dosageOptions, setDosageOptions ] =useState(
     const getPatientName=()=>{
 
 
-       return axios.get(`http://localhost:3001/findPatient/${profileNo}`).then(
+       return axios.get(`https://server-u74y.vercel.app/findPatient/${profileNo}`).then(
          (res) => {
           console.log(res.data[0]);
           setPatientName((res.data[0].firstName)+' '+(res.data[0].lastName))
@@ -398,7 +398,7 @@ const [dosageOptions, setDosageOptions ] =useState(
 
     const getPatientHistory = () =>{
 
-      return axios.get(`http://localhost:3001/findPatientHistory/${profileNo}`).then(
+      return axios.get(`https://server-u74y.vercel.app/findPatientHistory/${profileNo}`).then(
         (res) => {
             console.log(res.data[0].complaintsHistory);
             // setComplaints(res.data[0].complaintsHistory);
@@ -426,7 +426,7 @@ const [dosageOptions, setDosageOptions ] =useState(
 
   const fetchItems = async () => {
     try {
-      const data = await fetch(`http://localhost:3001/findPatientHistory/${profileNo}`);
+      const data = await fetch(`https://server-u74y.vercel.app/findPatientHistory/${profileNo}`);
       const items = await data.json();
       console.log("HELLO FROM INSIDE OF FETCHITEMS", items);
       setComplaint(items[0].complaintsHistory);
@@ -473,7 +473,7 @@ const fetchTabletsList = async () => {
   try {
   // return axios.get('http://localhost:3000/findTabletsList').then((res) => setTabletData(JSON.parse(JSON.stringify(res.data))));
 
-  const data = await fetch('http://localhost:3001/findTabletsList');
+  const data = await fetch('https://server-u74y.vercel.app/findTabletsList');
   const items = await data.json();
   // console.log('fetching'+items[0].tabletName);
 
@@ -1190,7 +1190,7 @@ const OpenTemplatesList=({ setOpenmodal ,setOpenViewModal, setValueList,})=>{
   const [medicineList,setMedicineList] = useState([]);
 
   const fetchInfo = () => {
-    return axios.get('http://localhost:3001/viewTemplates').then((res) => setData(res.data)
+    return axios.get('https://server-u74y.vercel.app/viewTemplates').then((res) => setData(res.data)
     
    
     );
