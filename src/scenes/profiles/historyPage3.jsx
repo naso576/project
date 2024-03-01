@@ -181,7 +181,7 @@ console.log('id is'+profileNo);
   
   console.log('params : '+ JSON.stringify(param1) );
   
-  axios.put('http://localhost:3001/updateHistory1',(param1) ).then(res => 
+  axios.put('https://server-u74y.vercel.app/updateHistory1',(param1) ).then(res => 
 {
   // if (res.status === 200) {
   //  setData(res.data );
