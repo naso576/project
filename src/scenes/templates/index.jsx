@@ -439,19 +439,28 @@ const cnt = data.length;
   
 }
     const headers = {
-        'Content-Type': 'text/plain'
+        'Content-Type': 'json'
     };
 
 console.log('params : '+ JSON.stringify((param1)) );
 
-axios.post('https://server-u74y.vercel.app/createTemplate',(param1),{headers} ).then(res => 
-{
-}
-).catch(err => {
+// axios.post('https://server-u74y.vercel.app/createTemplate',(param1),{headers} ).then(res => 
+// {
+// }
+// ).catch(err => {
 
-console.log('error: '+err)
+// console.log('error: '+err)
 
-});
+// });
+
+    Axios({
+            method: 'post',
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+            url: 'https://server-u74y.vercel.app/createTemplate',
+            data: param1
+          }).then(function (response) {
+            console.log(response.data);
+          });
 
 alert('Template is created successfully');
 
