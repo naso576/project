@@ -442,6 +442,12 @@ const cnt = data.length;
        
       'Access-Control-Allow-Origin': '*',
       'Content-Type': 'application/json',
+     
+        "Access-Control-Allow-Credentials": "true",
+             "Access-Control-Max-Age": "1800",
+               "Access-Control-Allow-Headers" :"content-type",
+              
+              "Access-Control-Allow-Methods":"PUT, POST, GET, DELETE, PATCH, OPTIONS" 
 
     };
 
