@@ -447,7 +447,7 @@ const cnt = data.length;
 
 console.log('params : '+ JSON.stringify((param1)) );
 
-axios.post('https://server-u74y.vercel.app/createTemplate',(param1),{headers} ).then(res => 
+axios.post('https://server-u74y.vercel.app/createTemplate',(param1) ).then(res => 
 {
 }
 ).catch(err => {
