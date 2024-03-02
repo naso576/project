@@ -443,33 +443,27 @@ const cnt = data.length;
       'Access-Control-Allow-Origin': '*',
       'Content-Type': 'application/json',
      
-        "Access-Control-Allow-Credentials": "true",
-             "Access-Control-Max-Age": "1800",
-               "Access-Control-Allow-Headers" :"content-type",
-              
-              "Access-Control-Allow-Methods":"PUT, POST, GET, DELETE, PATCH, OPTIONS" 
-
     };
 
 console.log('params : '+ JSON.stringify((param1)) );
 
-// axios.post('https://server-u74y.vercel.app/createTemplate',(param1),{headers} ).then(res => 
-// {
-// }
-// ).catch(err => {
+axios.post('https://server-u74y.vercel.app/createTemplate',(param1),{headers} ).then(res => 
+{
+}
+).catch(err => {
 
-// console.log('error: '+err)
+console.log('error: '+err)
 
-// });
+});
 
-    axios({
-            method: 'post',
-            headers: { 'Content-Type': 'application/json' },
-            url: 'https://server-u74y.vercel.app/createTemplate',
-            data: param1
-          }).then(function (response) {
-            console.log(response.data);
-          });
+    // axios({
+    //         method: 'post',
+    //         headers: { 'Content-Type': 'application/json' },
+    //         url: 'https://server-u74y.vercel.app/createTemplate',
+    //         data: param1
+    //       }).then(function (response) {
+    //         console.log(response.data);
+    //       });
 
 alert('Template is created successfully');
 
