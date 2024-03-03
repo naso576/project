@@ -72,7 +72,7 @@ const FinalPage =() => {
       
   const param1 ={
     profileNo :profileNo,
-    nextVisitDate : nextVisitDate
+    nextVisitDate : nextVisitDate1
   }
 console.log('param : '+ JSON.stringify(param1));
 
@@ -132,6 +132,7 @@ console.log('error: '+err)
     const [tenderness,setTenderness]= useState();
     const [advice,setAdvice] = useState();
     const [nextVisitDate,setNextVisitDate] = useState();
+   const [nextVisitDate1,setNextVisitDate1] = useState();
     const [openModal, setOpenmodal] = useState(false);
     const [openViewModal,setOpenViewModal] =useState(false);
     const [valueList,setValueList] = useState([]);
@@ -383,7 +384,8 @@ const [dosageOptions, setDosageOptions ] =useState(
 
       const date = Moment(e).format("DD-MMM-YYYY") +'  '+ day  ;
       
-      setNextVisitDate(date)
+      setNextVisitDate(date);
+      setNextVisitDate1( Moment(e).format("DD-MMM-YYYY"));
     }
 
 
