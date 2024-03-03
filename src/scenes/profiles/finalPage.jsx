@@ -569,7 +569,7 @@ const handleAddMore =()=>{
                   alt="profile-user"
                   width="100px"
                   height="100px"
-                  src={`../../assets/log_blue.jpg`}
+                  src={`../../assets/logo.jpg`}
                   style={{ cursor: "pointer", borderRadius: "0%" }}
                 />
                 </Box>
