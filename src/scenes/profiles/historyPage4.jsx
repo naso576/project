@@ -119,6 +119,16 @@ console.log(e.target.name+'  '+e.target.checked);
 
     const handleSubmit =()=>{
 
+         const headers = {
+       
+       'Access-Control-Allow-Origin': "http://nktdc.vercel.app",
+      'Content-Type': 'application/json',
+         "Access-Control-Allow-Methods" : "GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS",
+         "Access-Control-Allow-Headers": "Content-Type",
+        "Access-Control-Allow-Credentials" : true,
+        "Access-Control-Max-Age": 1800
+     
+    };
 
 
      setFinalArray( array.map((e,i)=>{
@@ -153,7 +163,7 @@ console.log(e.target.name+'  '+e.target.checked);
 
 
             
-          axios.put('https://server-u74y.vercel.app/updateHistory2',(param1) ).then(res => 
+          axios.put('https://server-u74y.vercel.app/updateHistory2',(param1),{headers} ).then(res => 
           {
            
           }
