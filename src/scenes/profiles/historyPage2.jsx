@@ -483,7 +483,16 @@ const hangleSkip =(e) =>{
 }
 
 const handleSubmit = () =>{
-
+ const headers = {
+       
+       'Access-Control-Allow-Origin': "http://nktdc.vercel.app",
+      'Content-Type': 'application/json',
+         "Access-Control-Allow-Methods" : "GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS",
+         "Access-Control-Allow-Headers": "Content-Type",
+        "Access-Control-Allow-Credentials" : true,
+        "Access-Control-Max-Age": 1800
+     
+    };
   const surgicalHistory = document.getElementById('surgicalHistory-id').value;
 
   // setFamilyHistory ( [...familyHistory, familyHistory1 ]);
@@ -563,7 +572,7 @@ console.log('params : ' +JSON.stringify(params1));
 //   console.log(' drug history is:'+ JSON.stringify(drugrows));
 //   console.log(' surgical history is:' + surgicalHistory);
 
-axios.post('https://server-u74y.vercel.app/addhistory1',(params1) ).then(res => 
+axios.post('https://server-u74y.vercel.app/addhistory1',(params1),{headers} ).then(res => 
 {
   // if (res.status === 200) {
   //  setData(res.data );
@@ -577,7 +586,7 @@ axios.post('https://server-u74y.vercel.app/addhistory1',(params1) ).then(res =>
 });
 
 
-axios.put('https://server-u74y.vercel.app/updateHistory',(params1) ).then(res => 
+axios.put('https://server-u74y.vercel.app/updateHistory',(params1),{headers} ).then(res => 
 {
   // if (res.status === 200) {
   //  setData(res.data );
