@@ -51,10 +51,20 @@ const num =randomNumberInRange(1, 500);
 // setCurrentdate(year.toString()+month.toString()+day.toString()+num.toString());
 
 const currentdate =year.toString()+month.toString()+day.toString()+num.toString();
+   const headers = {
+       
+       'Access-Control-Allow-Origin': "http://nktdc.vercel.app",
+      'Content-Type': 'application/json',
+         "Access-Control-Allow-Methods" : "GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS",
+         "Access-Control-Allow-Headers": "Content-Type",
+        "Access-Control-Allow-Credentials" : true,
+        "Access-Control-Max-Age": 1800
+     
+    };
 
   const handleFormSubmit =  (values) => {
 
-    axios.post('https://server-u74y.vercel.app/register',values).then(res => 
+    axios.post('https://server-u74y.vercel.app/register',values,{headers}).then(res => 
     {
    
      // console.log('success'+res.data);
