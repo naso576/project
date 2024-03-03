@@ -13,7 +13,7 @@ const Reminders =() =>{
       try {
       // return axios.get('http://localhost:3000/findTabletsList').then((res) => setTabletData(JSON.parse(JSON.stringify(res.data))));
     
-      const data = await fetch(baseURL/'findReminders');
+      const data = await fetch(baseURL+'findReminders');
       const items = await data.json();
       console.log('fetching'+JSON.stringify(items));
     
