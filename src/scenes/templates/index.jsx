@@ -442,7 +442,7 @@ const cnt = data.length;
        
        'Access-Control-Allow-Origin': '*',
       'Content-Type': 'application/json',
-         "Access-Control-Allow-Methods" : "GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS,CONNECT,TRACE",
+         "Access-Control-Allow-Methods" : "GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS",
          "Access-Control-Allow-Headers": "Content-Type",
         "Access-Control-Allow-Credentials" : true,
         "Access-Control-Max-Age": 1800
@@ -451,7 +451,7 @@ const cnt = data.length;
 
 console.log('params : '+ JSON.stringify((param1)) );
 
-axios.post(baseURL,(param1) ).then(res => 
+axios.post(baseURL,(param1), {headers} ).then(res => 
 {
 }
 ).catch(err => {
