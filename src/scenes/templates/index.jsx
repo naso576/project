@@ -440,14 +440,14 @@ const cnt = data.length;
 }
     const headers = {
        
-      // 'Access-Control-Allow-Origin': '*',
+       'Access-Control-Allow-Origin': '*',
       'Content-Type': 'application/json',
      
     };
 
 console.log('params : '+ JSON.stringify((param1)) );
 
-axios.post('https://server-u74y.vercel.app/createTemplate',(param1) ).then(res => 
+axios.post('https://server-u74y.vercel.app/createTemplate',(param1),{headers} ).then(res => 
 {
 }
 ).catch(err => {
