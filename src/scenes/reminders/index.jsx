@@ -43,7 +43,7 @@ const Reminders =() =>{
         <Table  style={{width:'1000px'}} >
               <TableBody>
             {tabletData.map((row,i)=>(
-                  <TableRow key={index} sx={{ '&:last-child td, &:last-child th': { border: 1} }}>
+                  <TableRow key={i} sx={{ '&:last-child td, &:last-child th': { border: 1} }}>
                                 
                   <TableCell align="right" size='10px'>
 
