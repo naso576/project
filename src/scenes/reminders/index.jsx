@@ -2,6 +2,9 @@ import React from 'react'
 import axios from 'axios';
 import { useState,useEffect } from 'react';
 import Moment  from 'moment';
+import {Box,Table,TableBody,TableCell,TableRow,TableHead} from '@mui/material';
+
+
 const Reminders =() =>{
 
   const baseURL = "https://server-u74y.vercel.app/";
@@ -36,11 +39,22 @@ const Reminders =() =>{
         <>
         <div>Reminders</div>
         <div>
+
+        <Table  style={{width:'1000px'}} >
+              <TableBody>
             {tabletData.map((row,i)=>(
+                  <TableRow key={index} sx={{ '&:last-child td, &:last-child th': { border: 1} }}>
+                                
+                  <TableCell align="right" size='10px'>
 
                 <p>{row.profileNo} {Moment(row.nextVisitDate).format('DD-MMM-YYYY')}</p>
-            ))
-            }
+                </TableCell>
+                </TableRow>
+                        ))}
+    
+
+              </TableBody>
+             </Table> 
 
         </div>
         </>
