@@ -47,7 +47,10 @@ const Reminders =() =>{
                                 
                   <TableCell align="right" size='10px'>
 
-                <p>{row.profileNo} {Moment(row.nextVisitDate).format('DD-MMM-YYYY')}</p>
+                <p>{row.profileNo} </p>
+                </TableCell>
+                <TableCell>
+               <p> {Moment(row.nextVisitDate).format('DD-MMM-YYYY')}</p>
                 </TableCell>
                 </TableRow>
                         ))}
