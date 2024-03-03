@@ -131,7 +131,8 @@ const [templateName, setTemplateName] = useState('');
 
 const navigate = useNavigate();
 
-const baseURL = "http://localhost:3001";   //'https://server-u74y.vercel.app/createTemplate'
+// const baseURL = "http://localhost:3001";  
+    const baseURL = "https://server-u74y.vercel.app/createTemplate";
 const [freqOptions,setFreqOptions] = useState(
 
     [
