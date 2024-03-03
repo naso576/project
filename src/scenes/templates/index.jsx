@@ -131,8 +131,7 @@ const [templateName, setTemplateName] = useState('');
 
 const navigate = useNavigate();
 
-
-
+const baseURL = "http://localhost:3001";   //'https://server-u74y.vercel.app/createTemplate'
 const [freqOptions,setFreqOptions] = useState(
 
     [
@@ -447,7 +446,7 @@ const cnt = data.length;
 
 console.log('params : '+ JSON.stringify((param1)) );
 
-axios.post('https://server-u74y.vercel.app/createTemplate',(param1),{headers} ).then(res => 
+axios.post(baseURL,(param1),{headers} ).then(res => 
 {
 }
 ).catch(err => {
