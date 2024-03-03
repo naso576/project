@@ -52,10 +52,7 @@ const Reminders =() =>{
                 <TableCell>
                <p> {Moment(row.nextVisitDate).format('DD-MMM-YYYY')}</p>
                 </TableCell>
-                     <TabelCell>
-
-                    <Button >Send Reminder</Button>
-                </TabelCell>
+                   
                 </TableRow>
                         ))}
     
