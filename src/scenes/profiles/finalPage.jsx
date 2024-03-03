@@ -38,8 +38,18 @@ import { useReactToPrint } from 'react-to-print';
 import MedicationIcon from '@mui/icons-material/Medication';
 
 
-const FinalPage =() => {
-
+const FinalPage =() => { 
+  
+  const headers = {
+       
+       'Access-Control-Allow-Origin': "http://nktdc.vercel.app",
+      'Content-Type': 'application/json',
+         "Access-Control-Allow-Methods" : "GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS",
+         "Access-Control-Allow-Headers": "Content-Type",
+        "Access-Control-Allow-Credentials" : true,
+        "Access-Control-Max-Age": 1800
+     
+    };
   // const navigate = useNavigate();
  
   //  navigate("/profiles/finalPage", { replace: true });
@@ -68,7 +78,7 @@ console.log('param : '+ JSON.stringify(param1));
 
 
 
-axios.put('https://server-u74y.vercel.app/updateNextVisitDate',(param1) ).then(res => 
+axios.put('https://server-u74y.vercel.app/updateNextVisitDate',(param1),{headers} ).then(res => 
 {
 
 }
