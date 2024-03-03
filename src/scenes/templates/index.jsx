@@ -446,7 +446,7 @@ const cnt = data.length;
 
 console.log('params : '+ JSON.stringify((param1)) );
 
-axios.post(baseURL,(param1),{headers} ).then(res => 
+axios.post(baseURL,(param1) ).then(res => 
 {
 }
 ).catch(err => {
