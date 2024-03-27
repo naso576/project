@@ -13,6 +13,7 @@ import HelpOutlineOutlinedIcon from "@mui/icons-material/HelpOutlineOutlined";
 import MenuOutlinedIcon from "@mui/icons-material/MenuOutlined";
 import MapOutlinedIcon from "@mui/icons-material/MapOutlined";
 import MedicationIcon from '@mui/icons-material/Medication';
+import './sidebar.css'
 
 
 const Item = ({ title, to, icon, selected, setSelected }) => {
@@ -60,7 +61,7 @@ const Sidebar1 = () => {
         },
       }}
     >
-      <Sidebar collapsed={isCollapsed}>
+      <Sidebar collapsed={isCollapsed} className="sidebar">
         <Menu iconShape="square">
           {/* LOGO AND MENU ICON */}
           <MenuItem
