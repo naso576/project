@@ -544,7 +544,7 @@ const handleAddMore =()=>{
 
     return (
           <div>
-            <div ref={printRef} style={{marginTop:'5%',backgroundColor:'lightcyan'}}>
+            <div ref={printRef} style={{marginTop:'5%'}}>
             <style>
             {`@media print {
               
