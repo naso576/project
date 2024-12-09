@@ -20,7 +20,7 @@ import FinalPage from "./scenes/profiles/finalPage";
 import ManageTemplates from "./scenes/templates";
 import TabletsList from "./scenes/templates/tablets";
 import Reminders from "./scenes/reminders";
-
+import QueriesChat from "./components/chatbot/chatbot";
 
 function App() {
   const [theme, colorMode] = useMode();
@@ -53,6 +53,7 @@ function App() {
               <Route path="/profiles/finalPage" element={<FinalPage/>}/>
             </Routes>
           </main>
+   <QueriesChat/>
         </div>
       </ThemeProvider>
     </ColorModeContext.Provider>
