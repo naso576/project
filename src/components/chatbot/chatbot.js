@@ -4,14 +4,25 @@ import 'react-chatbot-kit/build/main.css';
 import config from './config';
 import ActionProvider from './actionProvider';
 import MessageParser from './messageParser';
-import { useState } from 'react';
+import { useState , useEffect} from 'react';
+import { IconButton } from "@mui/material";
+import ChatBubbleOutlineIcon from "@mui/icons-material/ChatBubbleOutline";
+import CloseIcon from "@mui/icons-material/Close";
 
 function QueriesChat(){
 const [userInput,setUserInput] = useState("");
+const [isChatbotOpen,setChatbotOpen] = useState(false);
+const toggleChatbot = ()=>{
+    console.log('toggle');
+    setChatbotOpen(!isChatbotOpen);
+}
 const handleInputChange =(event)=>{
     setUserInput(event.target.value);
 }
+useEffect(()=>{
 
+    console.log(isChatbotOpen);
+},[])
 const handleSend =()=>{
 if (userInput.trim() !== ""){
     const actionProvider = new ActionProvider();
@@ -23,15 +34,16 @@ if (userInput.trim() !== ""){
     return (
 
         <div>
-<Chatbot config={config} actionProvider={ActionProvider} messageParser={MessageParser}/>
-{/* <input type='text'
-value={userInput}
-onChange={handleInputChange}
-placeholder='Type your Question here'
-/>
-<button onClick={handleSend}>send</button> */}
 
-        </div>
+  <IconButton onClick={toggleChatbot}>   
+  {   
+    isChatbotOpen? <CloseIcon/>
+: <ChatBubbleOutlineIcon/>
+}
+</IconButton>
+{isChatbotOpen &&
+<Chatbot config={config} actionProvider={ActionProvider} messageParser={MessageParser}/>}
+</div>
     )
 }
 
