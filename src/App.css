@@ -27,7 +27,20 @@
 .App-link {
   color: #61dafb;
 }
-
+.chatBox{  
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Black with 50% opacity */
+    color: white;
+    display: flex;
+    justify-content: end;
+    align-items: end;
+    text-align: center;
+    z-index: 100; /* Ensures the overlay is on top */
+}
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
