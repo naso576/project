@@ -8,6 +8,7 @@ import { useState , useEffect} from 'react';
 import { IconButton } from "@mui/material";
 import ChatBubbleOutlineIcon from "@mui/icons-material/ChatBubbleOutline";
 import CloseIcon from "@mui/icons-material/Close";
+import ChatIcon from '@mui/icons-material/Chat';
 
 function QueriesChat(){
 const [userInput,setUserInput] = useState("");
@@ -38,7 +39,7 @@ if (userInput.trim() !== ""){
   <IconButton onClick={toggleChatbot}>   
   {   
     isChatbotOpen? <CloseIcon/>
-: <ChatBubbleOutlineIcon/>
+: <ChatIcon sx={{fontSize:60}}/>
 }
 </IconButton>
 {isChatbotOpen &&
