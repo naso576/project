@@ -6,9 +6,9 @@ import ActionProvider from './actionProvider';
 import MessageParser from './messageParser';
 import { useState , useEffect} from 'react';
 import { IconButton } from "@mui/material";
+import ChatIcon from '@mui/icons-material/Chat';
 import ChatBubbleOutlineIcon from "@mui/icons-material/ChatBubbleOutline";
 import CloseIcon from "@mui/icons-material/Close";
-import ChatIcon from '@mui/icons-material/Chat';
 
 function QueriesChat(){
 const [userInput,setUserInput] = useState("");
@@ -36,14 +36,16 @@ if (userInput.trim() !== ""){
 
         <div>
 
-  <IconButton onClick={toggleChatbot}>   
+  <IconButton onClick={toggleChatbot} >   
   {   
     isChatbotOpen? <CloseIcon/>
-: <ChatIcon sx={{fontSize:60}}/>
+: <ChatIcon sx={{fontSize:100}}/>
 }
 </IconButton>
 {isChatbotOpen &&
-<Chatbot config={config} actionProvider={ActionProvider} messageParser={MessageParser}/>}
+<Chatbot config={config} 
+actionProvider={ActionProvider} 
+messageParser={MessageParser}/>}
 </div>
     )
 }
