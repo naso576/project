@@ -33,7 +33,7 @@ function App() {
         <CssBaseline />
         <div className="app">
           <Sidebar1 isSidebar={isSidebar} />
-          <main className="content">
+          <main className="main-content">
             <Topbar setIsSidebar={setIsSidebar} />
             <Routes>
               <Route path="/" element={<SignUp />} />
