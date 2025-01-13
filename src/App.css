@@ -58,9 +58,9 @@
 @media (min-width: 500px) {
   .main-content {
     width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+/*     display: flex; */
+/*     justify-content: center; */
+/*     align-items: center; */
     height: 100vh;
     background-color: #282c34;
     color: white;
