@@ -29,8 +29,8 @@
 }
 
 .main-content{
-    display: flex;
-  justify-content: center;
+    display: inline-block;
+/*   justify-content: center; */
 }
 .chatBox{
   
