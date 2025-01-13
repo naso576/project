@@ -27,6 +27,11 @@
 .App-link {
   color: #61dafb;
 }
+
+.main-content{
+    display: flex;
+  justify-content: center;
+}
 .chatBox{
   
     position: absolute;
@@ -47,5 +52,24 @@
   }
   to {
     transform: rotate(360deg);
+  }
+}
+
+@media (min-width: 500px) {
+  .main-content {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #282c34;
+    color: white;
+  }
+  .chat-box{
+     display: flex;
+    justify-content: end;
+    align-items: end;
+    font-size: 16px;
+    
   }
 }
