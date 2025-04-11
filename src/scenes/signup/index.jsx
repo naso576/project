@@ -80,7 +80,7 @@ export default function SignUp() {
 
     const createUser = async (userData) => {
       try {
-      const response = await axios.post(baseURL, userData,{headers});
+      const response = await axios.post(baseURL, (userData),{headers});
       console.log('User created successfully:', response.data);
       } catch (error) {
       console.error('Error creating user:', error);
