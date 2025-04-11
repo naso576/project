@@ -36,8 +36,8 @@ const defaultTheme = createTheme();
 export default function SignUp() {
 
   // const baseURL = process.env.REACT_APP_BASE_URL;
-  // const baseURL = "https://server-u74y.vercel.app/createUser";
-  const baseURL = "http://localhost:3001/createUser";
+  const baseURL = "https://server-u74y.vercel.app/createUser";
+  // const baseURL = "http://localhost:3001/createUser";
   const headers = {
        
     'Access-Control-Allow-Origin': '*',
