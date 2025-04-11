@@ -1,9 +1,12 @@
 import * as React from 'react';
+import axios from "axios";
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
 import TextField from '@mui/material/TextField';
 import FormControlLabel from '@mui/material/FormControlLabel';
+import MenuItem from '@mui/material/MenuItem';
+import FormControl from '@mui/material/FormControl';
 import Checkbox from '@mui/material/Checkbox';
 import Link from '@mui/material/Link';
 import Grid from '@mui/material/Grid';
@@ -17,8 +20,8 @@ function Copyright(props) {
   return (
     <Typography variant="body2" color="text.secondary" align="center" {...props}>
       {'Copyright © '}
-      <Link color="inherit" href="https://mui.com/">
-        Your Website
+      <Link color="inherit" href="https://nasosolutions.com/">
+        NasoSolutions
       </Link>{' '}
       {new Date().getFullYear()}
       {'.'}
@@ -31,15 +34,59 @@ function Copyright(props) {
 const defaultTheme = createTheme();
 
 export default function SignUp() {
+
+  // const baseURL = process.env.REACT_APP_BASE_URL;
+  // const baseURL = "https://server-u74y.vercel.app/createUser";
+  const baseURL = "http://localhost:3001/createUser";
+  const headers = {
+       
+    'Access-Control-Allow-Origin': '*',
+   'Content-Type': 'application/json',
+      "Access-Control-Allow-Methods" : "GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS",
+      "Access-Control-Allow-Headers": "Content-Type",
+     "Access-Control-Allow-Credentials" : true,
+     "Access-Control-Max-Age": 1800
+  
+ };
+
+  const [userDetails, setUserDetails] = React.useState({
+    id: Math.floor(Math.random() * 1000),
+    firstName: '',
+    lastName: '',
+    email: '',
+    phone: '',
+    password: '',
+    userType: '',
+    status: 'active',
+
+  });
+
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
-    console.log({
+    const userData = {
+      firstName: data.get('firstName'),
+      lastName: data.get('lastName'),
       email: data.get('email'),
+      phone: data.get('phone'),
       password: data.get('password'),
-    });
+      userType: data.get('userType'),
+      status: 'active',
+      id: Math.floor(Math.random() * 1000),
+    };
+    setUserDetails(userData);
+    createUser(userData) ;
   };
 
+    const createUser = async (userData) => {
+      try {
+      const response = await axios.post(baseURL, userData, { headers });
+      console.log('User created successfully:', response.data);
+      } catch (error) {
+      console.error('Error creating user:', error);
+      }
+    };
+   
   return (
     <ThemeProvider theme={defaultTheme}>
       <Container component="main" maxWidth="xs">
@@ -95,6 +142,16 @@ export default function SignUp() {
                 <TextField
                   required
                   fullWidth
+                  id="phone"
+                  label="Phone Number"
+                  name="phone"
+                  autoComplete="phone"
+                />
+              </Grid>
+              <Grid item xs={12}>
+                <TextField
+                  required
+                  fullWidth
                   name="password"
                   label="Password"
                   type="password"
@@ -102,8 +159,35 @@ export default function SignUp() {
                   autoComplete="new-password"
                 />
               </Grid>
+              <Grid item xs={12}>
+                <TextField
+                  required
+                  fullWidth
+                  name="repassword"
+                  label="Re-enter Password"
+                  type="password"
+                  id="password"
+                  autoComplete="new-password"
+                />
+              </Grid>
             
+              <Grid item xs={12}>
+                <FormControl fullWidth required>
+                  <TextField
+                    id="userType"
+                    select
+                    label="User Type"
+                    defaultValue="Doctor"
+                  >
+                    <MenuItem value="Doctor">Doctor</MenuItem>
+                    <MenuItem value="employee">Employee</MenuItem>
+                  </TextField>
+                </FormControl>
+                
+                </Grid>
+
             </Grid>
+
             <Button
               type="submit"
               fullWidth
