@@ -40,7 +40,7 @@ export default function SignUp() {
   // const baseURL = "http://localhost:3001/createUser";
   const headers = {
        
-    'Access-Control-Allow-Origin': '*',
+    'Access-Control-Allow-Origin': 'http://nktdc.vercel.app',
    'Content-Type': 'application/json',
       "Access-Control-Allow-Methods" : "GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS",
       "Access-Control-Allow-Headers": "Content-Type",
